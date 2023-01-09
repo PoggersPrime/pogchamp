@@ -1,0 +1,55 @@
+Step 1:  create database
+step 2: create tables
+
+table 1: sliders
+database field variable name: id | img | title | description | status | created_at | updated_at | 
+Data type	int AI | Varchar (255) | varchar(255) | long text | int default(1) | timestamp default(current_timestamp) | timestamp default(current_timestamp)
+
+add-sliders.php
+edit-sliders.php
+view-sliders.php
+delete-sliders.php
+manage-sliders.php
+
+table 2: aboutus
+id | top_title | top-desc |title | description | img | status | created_at | updated_at
+
+table 3: facts
+id | number | title | status | created_at | updated_at
+
+table 4: features
+id | title | description | status | created_at | updated_at
+
+table 5: whychooseus
+id | title | description | status | created_at | updated_at
+
+table 6: services
+id | icon | title | description | status | created_at | updated_at
+
+table 7: facilities
+id | icon | title |status | created_at | updated_at
+
+table 8: courses 
+id | img | title | fee | description | seats | time | status | created_at | updated_at
+
+table 9: course_features
+id | title | img | description | status | created_at | updated_at
+
+table 10: testimonials
+id | img | name | post | message | status | created_at | updated_at
+
+table 11: teachers
+id | img | name | post | status | created_at | updated_at
+
+table 12: events
+id | img | title | date | description | status | created_at | updated_at
+
+table 13: galleries
+id | title | img | status | created_at | updated_at
+
+table 14: results
+id | title | date | description | status | created_at | updated_at
+
+table 15: settings
+id | site_key | site_value | status | created_at | updated_at
+
