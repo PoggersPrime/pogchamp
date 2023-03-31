@@ -12,12 +12,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Add facts</h1>
+            <h1>view facts</h1>
             <a href="manage-facts" class="btn btn-primary btn-md my-3 ">Back</a>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">add-facts</li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+                    <li class="breadcrumb-item active">view-facts</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -25,40 +25,38 @@
             <div class="row">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Add file</h5>
+                        <h5 class="card-title">View file</h5>
                         <?php
-                        if(isset($_GET['id'])){
-                            $id=$_GET['id'];
-                            $query = "SELECT FROM facts where id=$id";
-                            $result = mysqli_query($con,$query);
-                            $data = $result ->fetch_assoc();
+                        if (isset($_GET['id'])) {
+                            $id = $_GET['id'];
+                            $query = "SELECT * FROM facts where id=$id";
+                            $result = mysqli_query($con, $query);
+                            $data = $result->fetch_assoc();
                         }
                         ?>
                         <?php
-                        if(isset($_POST['submit'])){
-                            $numbers =$_POST['numbers'];
+                        if (isset($_POST['submit'])) {
+                            $numbers = $_POST['numbers'];
                             $title = $_POST['title'];
 
-                            if( $title!="" && $numbers !=""){
-                                $query="UPDATE facts SET numbers='$numbers',title='$title' where id='$id'";
-                                $result = mysqli_query($con,$query);
+                            if ($title != "" && $numbers != "") {
+                                $query = "UPDATE facts SET numbers='$numbers',title='$title' where id='$id'";
+                                $result = mysqli_query($con, $query);
 
-                                if($result){
-                                    ?>
+                                if ($result) {
+                        ?>
                         <div class="alert alert-success" role="alert">
                             Data submitted succesfully
                         </div>
                         <?php
-                                }
-                                else{
-                                    ?>
+                                } else {
+                                ?>
                         <div class="alert alert-danger" role="alert">
                             Data not inserted
                         </div>
                         <?php
                                 }
-                            }
-                            else{
+                            } else {
                                 ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted
@@ -73,7 +71,7 @@
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">number</label>
                                         <input type="tel" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" name="numbers" disabled
+                                            aria-describedby="emailHelp" name="numbers"
                                             value="<?php echo $data['numbers'] ?>">
                                     </div>
 
@@ -83,12 +81,13 @@
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Title</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp" name="title" disabled
+                                                aria-describedby="emailHelp" name="title"
                                                 value="<?php echo $data['title'] ?>">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                         </form>
                     </div>
                 </div>

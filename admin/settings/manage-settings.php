@@ -1,5 +1,5 @@
 <?php include("../inc/header.php"); ?>
-<?php 
+<?php
 require('../connection/config.php');
 ?>
 
@@ -17,7 +17,7 @@ require('../connection/config.php');
             <h1>Manage settings</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">manage-settings</li>
                 </ol>
             </nav>
@@ -37,11 +37,11 @@ require('../connection/config.php');
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
-                              $table= "SELECT * FROM settings ";
-                              $result1= mysqli_query($con,$table);
-                              $i=0;
-                              while($data=mysqli_fetch_array($result1)){
+                                <?php
+                                $table = "SELECT * FROM settings ";
+                                $result1 = mysqli_query($con, $table);
+                                $i = 0;
+                                while ($data = mysqli_fetch_array($result1)) {
                                 ?>
                                 <tr>
                                     <th scope="row"><?php echo ++$i; ?></th>
@@ -49,19 +49,19 @@ require('../connection/config.php');
                                     <td><?php echo $data['site_value'] ?></td>
                                     <td>
                                         <a class="btn btn-primary btn-sm "
-                                            href="edit-settings.php?id=<?php echo $data['id'];?>" role="button">Edit
+                                            href="edit-settings.php?id=<?php echo $data['id']; ?>" role="button">Edit
                                         </a>
                                         <a class="btn btn-info btn-sm "
-                                            href="view-settings.php?id=<?php echo $data['id'];?>" role="button">View
+                                            href="view-settings.php?id=<?php echo $data['id']; ?>" role="button">View
                                         </a>
                                         <a class="btn btn-danger btn-sm "
-                                            href="../process/delete-settings.php?id=<?php echo $data['id'];?>"
+                                            href="../process/delete-settings.php?id=<?php echo $data['id']; ?>"
                                             role="button">Delete </a>
                                     </td>
                                 </tr>
                                 <?php
-                              }
-                              ?>
+                                }
+                                ?>
 
                             </tbody>
                         </table>

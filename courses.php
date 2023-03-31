@@ -43,7 +43,7 @@ include("./admin/connection/config.php");
                                     <p class="price"><?php echo $resdat['fee']; ?></p>
                                 </div>
 
-                                <h3><a href="course-details.html"><?php echo $resdat['title']; ?></a></h3>
+                                <h3><a href="course-details.php"><?php echo $resdat['title']; ?></a></h3>
                                 <p><?php echo $resdat['description']; ?></p>
                                 <div class="trainer d-flex justify-content-between align-items-center">
                                     <div class="trainer-profile d-flex align-items-center">

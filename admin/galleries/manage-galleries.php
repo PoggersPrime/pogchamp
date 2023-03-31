@@ -14,11 +14,11 @@ require('../connection/config.php');
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Manage course_features</h1>
+            <h1>Manage galleries</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">manage-course_features</li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+                    <li class="breadcrumb-item active">manage-galleries</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -26,7 +26,7 @@ require('../connection/config.php');
             <div class="row">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Manage course_features</h5>
+                        <h5 class="card-title">Manage galleries</h5>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -38,7 +38,7 @@ require('../connection/config.php');
                             </thead>
                             <tbody>
                                 <?php
-                                $table = "SELECT * FROM course_features ";
+                                $table = "SELECT * FROM galleries ";
                                 $result1 = mysqli_query($con, $table);
                                 $i = 0;
                                 while ($data = mysqli_fetch_array($result1)) {
@@ -46,7 +46,8 @@ require('../connection/config.php');
                                 <tr>
                                     <th scope="row"><?php echo ++$i; ?></th>
                                     <td><?php echo $data['title'] ?></td>
-                                    <td><img src="<?php echo "../img/" . @$data['img'] ?>" alt=""></td>
+                                    <td><img src="<?php echo "../img/" . @$data['img'] ?>" alt="" height="100px"
+                                            width="100px"></td>
                                     <td>
                                         <a class="btn btn-primary btn-sm "
                                             href="edit-galleries.php?id=<?php echo $data['id']; ?>" role="button">Edit

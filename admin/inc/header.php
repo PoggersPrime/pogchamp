@@ -4,7 +4,7 @@ require('../connection/config.php');
 <?php
 session_start();
 ?>
-<?php include('../loginprocess/secure.php'); ?>
+<?php include('../login-process/secure.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@ session_start();
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Dashboard - NiceAdmin Bootstrap Template</title>
+    <title>Admin</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 

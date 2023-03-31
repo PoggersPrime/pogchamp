@@ -17,7 +17,7 @@ require('../connection/config.php');
             <h1>Manage course_features</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">manage-course_features</li>
                 </ol>
             </nav>

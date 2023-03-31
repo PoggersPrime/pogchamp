@@ -15,7 +15,7 @@
             <h1>Add Services</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">add-services</li>
                 </ol>
             </nav>
@@ -26,31 +26,29 @@
                     <div class="card-body">
                         <h5 class="card-title">Add services</h5>
                         <?php
-                        if(isset($_POST['submit'])){
+                        if (isset($_POST['submit'])) {
                             $icon = $_POST['icon'];
                             $title = $_POST['title'];
-                            $description =$_POST['description'];
+                            $description = $_POST['description'];
 
-                            if($title !=="" && $title!="" && $description !=""){
-                                $query="INSERT INTO services (icon,title,description) VALUES ('$icon','$title','$description')";
-                                $result = mysqli_query($con,$query);
+                            if ($title !== "" && $title != "" && $description != "") {
+                                $query = "INSERT INTO services (icon,title,description) VALUES ('$icon','$title','$description')";
+                                $result = mysqli_query($con, $query);
 
-                                if($result){
-                                    ?>
+                                if ($result) {
+                        ?>
                         <div class="alert alert-success" role="alert">
                             Data submitted succesfully
                         </div>
                         <?php
-                                }
-                                else{
-                                    ?>
+                                } else {
+                                ?>
                         <div class="alert alert-danger" role="alert">
                             Data not inserted
                         </div>
                         <?php
                                 }
-                            }
-                            else{
+                            } else {
                                 ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted

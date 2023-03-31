@@ -15,7 +15,7 @@
             <h1>Add File</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">add-file</li>
                 </ol>
             </nav>
@@ -26,57 +26,56 @@
                     <div class="card-body">
                         <h5 class="card-title">Add file</h5>
                         <?php
-                        if(isset($_POST['submit'])){
-                            $title=$_POST['title'];
-                            $description=$_POST['description'];
+                        if (isset($_POST['submit'])) {
+                            $title = $_POST['title'];
+                            $description = $_POST['description'];
                             $filename = $_FILES['dataFile']['name'];
-                            $filesize= $_FILES['dataFile']['size'];
-            // name ra extention(.exe) lai xutauni kam 
-                            $explode = explode('.',$filename);
-            // lower case banauna
+                            $filesize = $_FILES['dataFile']['size'];
+                            // name ra extention(.exe) lai xutauni kam 
+                            $explode = explode('.', $filename);
+                            // lower case banauna
                             $firstname = strtolower($explode[0]);
                             $ext = strtolower($explode[1]);
-            // for removing sapce
-                            $rep = str_replace(' ','',$filename);
-            // connecting all peices 
-                             $finalname= $rep.time().'.'.$ext;
-                             if($filesize >=20000){
-                                if($ext=="png" || $ext == "jpg" || $ext == "jpeg" ){
-                                    if(move_uploaded_file($_FILES['dataFile']['tmp_name'],'../img/'.$finalname)){
-                                    $query="INSERT INTO files (title,filelink,type,description) VALUES ('$title','$finalname','$ext','$description')";
-                                    $result = mysqli_query($con,$query);
-                                    if($result){
-                                        ?>
+                            // for removing sapce
+                            $rep = str_replace(' ', '', $filename);
+                            // connecting all peices 
+                            $finalname = $rep . time() . '.' . $ext;
+                            if ($filesize >= 20000) {
+                                if ($ext == "png" || $ext == "jpg" || $ext == "jpeg") {
+                                    if (move_uploaded_file($_FILES['dataFile']['tmp_name'], '../img/' . $finalname)) {
+                                        $query = "INSERT INTO files (title,filelink,type,description) VALUES ('$title','$finalname','$ext','$description')";
+                                        $result = mysqli_query($con, $query);
+                                        if ($result) {
+                        ?>
                         <div class="alert alert-warning" role="alert">
                             File is submitted
                         </div>
                         <?php
-                                    }
-                                    else{
+                                        } else {
                                         ?>
                         <div class="alert alert-warning" role="alert">
                             error
                         </div>
                         <?php
-                                    }
-                                    }
-                                    else{
+                                        }
+                                    } else {
                                         ?>
                         <div class="alert alert-warning" role="alert">
                             File is not uploded
                         </div>
                         <?php
                                     }
-                                }
-                                else{
+                                } else {
                                     ?>
                         <div class="alert alert-warning" role="alert">
                             File ext not matched
                         </div>
                         <?php
                                 }
+                            } else {
+                                echo "error";
+                            }
                         }
-                    }
                         ?>
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="row">

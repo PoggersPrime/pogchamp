@@ -17,7 +17,7 @@ require('../connection/config.php');
             <h1>Manage courses</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">manage-courses</li>
                 </ol>
             </nav>
@@ -42,20 +42,20 @@ require('../connection/config.php');
                             </thead>
                             <tbody>
                                 <?php
-                                $table = "SELECT * FROM courses ";
+                                $table = "SELECT * FROM courses";
                                 $result1 = mysqli_query($con, $table);
                                 $i = 0;
                                 while ($data = mysqli_fetch_array($result1)) {
                                 ?>
                                 <tr>
                                     <th scope="row"><?php echo ++$i; ?></th>
-                                    <td><img src="<?php echo "../img/" . $data['img'] ?>" height="100px" width="100px" ;
-                                            alt=""></td>
-                                    <td><?php echo $data['title'] ?></td>
-                                    <td><?php echo $data['fee'] ?></td>
-                                    <td><?php echo $data['description'] ?></td>
-                                    <td><?php echo $data['seats'] ?></td>
-                                    <td><?php echo $data['time'] ?></td>
+                                    <td><img src="<?php echo '../img/' . $data['img']; ?>" width="100" height="100">
+                                    </td>
+                                    <td><?php echo $data['title']; ?></td>
+                                    <td><?php echo $data['fee']; ?></td>
+                                    <td><?php echo $data['description']; ?></td>
+                                    <td><?php echo $data['seats']; ?></td>
+                                    <td><?php echo $data['time']; ?></td>
                                     <td>
                                         <a class="btn btn-primary btn-sm "
                                             href="edit-courses.php?id=<?php echo $data['id']; ?>" role="button">Edit

@@ -15,7 +15,7 @@
             <h1>Add teachers</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">teachers</li>
                 </ol>
             </nav>
@@ -27,31 +27,30 @@
                         <h5 class="card-title">Add teachers</h5>
 
                         <?php
-                        if(isset($_POST['submit'])){
+                        if (isset($_POST['submit'])) {
                             $img = $_POST['img'];
-                            $name =$_POST['name'];
-                            $post= $_POST ['post'];
+                            $name = $_POST['name'];
+                            $post = $_POST['post'];
+                            $description = $_POST['description'];
 
-                            if($img !== "" && $name != ""){
-                                $query = "INSERT INTO teachers (img,name,post) VALUES ('$img','$name','$post')";
-                                $result = mysqli_query($con,$query);
+                            if ($img !== "" && $name != "") {
+                                $query = "INSERT INTO teachers (img,name,post,description) VALUES ('$img','$name','$post','$description')";
+                                $result = mysqli_query($con, $query);
 
-                                if($result){
-                                    ?>
+                                if ($result) {
+                        ?>
                         <div class="alert alert-success" role="alert">
                             Submitted succesfully
                         </div>
                         <?php
-                                }
-                                else{
-                                    ?>
+                                } else {
+                                ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted
                         </div>
                         <?php
                                 }
-                            }
-                            else {
+                            } else {
                                 ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted
@@ -59,7 +58,7 @@
                         <?php
                             }
                         }
-                         ?>
+                        ?>
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
@@ -94,12 +93,12 @@
                                                             </style>
 
                                                             <?php
-                                                    $select_query = "SELECT * FROM files";
-                                                    $select_result = mysqli_query($con, $select_query);
-                                                    $i = 0;
-                                                    while ($data_select = mysqli_fetch_array($select_result)) {
-                                                        $i++;
-                                                    ?>
+                                                            $select_query = "SELECT * FROM files";
+                                                            $select_result = mysqli_query($con, $select_query);
+                                                            $i = 0;
+                                                            while ($data_select = mysqli_fetch_array($select_result)) {
+                                                                $i++;
+                                                            ?>
                                                             <label>
                                                                 <input type="radio" name="img"
                                                                     value="<?php echo $data_select['filelink']; ?>"
@@ -109,8 +108,8 @@
                                                                     style="margin-right:20px;">
                                                             </label>
                                                             <?php
-                                                    }
-                                                    ?>
+                                                            }
+                                                            ?>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -146,9 +145,16 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Post</label>
+                                        <label for="exampleInputPost1" class="form-label">Post</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" name="post">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Description</label>
                                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                            name="post"></textarea>
+                                            name="description"></textarea>
                                     </div>
                                 </div>
                             </div>

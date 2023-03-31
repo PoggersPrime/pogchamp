@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
 
     if ($email !== "" && $password !== "") {
         if ($password == $cpassword) {
-            $query = "SELECT * FROM admin where email='$email'";
+            $query = "SELECT * FROM admin where email='$email' And password='$password'";
             $result = mysqli_query($con, $query);
             $count = mysqli_num_rows($result);
             if ($count == 1) {
@@ -19,6 +19,7 @@ if (isset($_POST['submit'])) {
 
                 session_start();
                 $_SESSION['id'] = $row['id'];
+                $_SESSION['name'] = $row['name'];
                 $_SESSION['email'] = $row['email'];
 
                 // header("Refresh:0; url=../home.php");

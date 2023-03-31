@@ -94,25 +94,25 @@ include("./admin/connection/config.php");
                 <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                     <div class="swiper-wrapper">
                         <?php
-                        $testi = "SELECT*FROM testimonials";
-                        $testires = mysqli_query($con, $testi);
-                        while ($testidata = mysqli_fetch_array($testires)) {
+                        $testimonials = "SELECT * FROM testimonials ";
+                        $testiesult = mysqli_query($con, $testimonials);
+                        while ($tdata = mysqli_fetch_array($testiesult)) {
                         ?>
                         <div class="swiper-slide">
                             <div class="testimonial-wrap">
                                 <div class="testimonial-item">
-                                    <img src="<?php echo "admin/img/" . $testidata['img']; ?>" class="testimonial-img"
+                                    <img src="<?php echo "admin/img/" . $tdata['img'] ?>" class="testimonial-img"
                                         alt="">
-                                    <h3><?php echo $testidata['name'] ?></h3>
-                                    <h4><?php echo $testidata['post'] ?></h4>
+                                    <h3><?php echo $tdata['name']; ?></h3>
+                                    <h4><?php echo $tdata['post']; ?></h4>
                                     <p>
                                         <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                        <?php echo $testidata['messages'] ?>
+                                        <?php echo $tdata['messages']; ?>
                                         <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </div><!-- End testimonial item -->
                         <?php
                         }
                         ?>

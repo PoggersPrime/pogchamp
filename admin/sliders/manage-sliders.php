@@ -17,8 +17,8 @@ require('../connection/config.php');
             <h1>Manage Sliders</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">manage-file</li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+                    <li class="breadcrumb-item active">manage-slider</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -26,7 +26,7 @@ require('../connection/config.php');
             <div class="row">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Manage Files</h5>
+                        <h5 class="card-title">Manage Sliders</h5>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -46,7 +46,8 @@ require('../connection/config.php');
                                 ?>
                                 <tr>
                                     <th scope="row"><?php echo ++$i; ?></th>
-                                    <td><img src="<?php echo "../img/" . @$data['img'] ?>" alt=""></td>
+                                    <td><img src="<?php echo "../img/" . @$data['img'] ?>" alt="p" height="100px"
+                                            width="100px"></td>
                                     <td><?php echo $data['title'] ?></td>
                                     <td><?php echo $data['description'] ?></td>
                                     <td>

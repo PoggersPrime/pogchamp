@@ -12,12 +12,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Add Sliders</h1>
+            <h1>edit Sliders</h1>
             <nav>
+                <a href="manage-sliders" class="btn btn-primary btn-md my-3 ">Back</a>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Forms</li>
-                    <li class="breadcrumb-item active">Layouts</li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+                    <li class="breadcrumb-item active">Edit-Sliders</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -26,42 +26,39 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Edit Sliders</h5>
-                        <a href="manage-sliders" class="btn btn-primary btn-md my-3 ">Back</a>
                         <?php
-                         if(isset($_GET['id'])){
-                            $id=$_GET['id'];
-                            $edit="SELECT* FROM sliders where id=$id";
-                            $result=mysqli_query($con,$edit);
-                            $data=$result->fetch_assoc();
-                        } 
+                        if (isset($_GET['id'])) {
+                            $id = $_GET['id'];
+                            $edit = "SELECT* FROM sliders where id=$id";
+                            $result = mysqli_query($con, $edit);
+                            $data = $result->fetch_assoc();
+                        }
                         ?>
                         <?php
-                        if(isset($_POST['submit'])){
-                            $img = $_POST['img'];
-                            $title =$_POST['title'];
-                            $description= $_POST ['description'];
+                        if (isset($_POST['submit'])) {
+                            $img = @$_POST['img'];
+                            $title = $_POST['title'];
+                            $description = $_POST['description'];
 
-                            if($img !== "" && $title != ""){
+                            if ($img !== "" && $title != "") {
                                 $query = "UPDATE sliders SET img='$img',title='$title',description='$description' where id=$id";
-                                $result = mysqli_query($con,$query);
+                                $result = mysqli_query($con, $query);
 
-                                if($result){
-                                    ?>
+                                if ($result) {
+                        ?>
                         <div class="alert alert-success" role="alert">
                             Submitted succesfully
                         </div>
                         <?php
-                        echo("<meta http-equiv=\"refresh\" content=\"0;URL=manage-sliders.php\">");
-                                }
-                                else{
-                                    ?>
+                                    echo ("<meta http-equiv=\"refresh\" content=\"0;URL=manage-sliders.php\">");
+                                } else {
+                                ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted
                         </div>
                         <?php
                                 }
-                            }
-                            else {
+                            } else {
                                 ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted
@@ -69,7 +66,7 @@
                         <?php
                             }
                         }
-                         ?>
+                        ?>
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
@@ -105,12 +102,12 @@
                                                             </style>
 
                                                             <?php
-                                                    $select_query = "SELECT * FROM files";
-                                                    $select_result = mysqli_query($con, $select_query);
-                                                    $i = 0;
-                                                    while ($data_select = mysqli_fetch_array($select_result)) {
-                                                        $i++;
-                                                    ?>
+                                                            $select_query = "SELECT * FROM files";
+                                                            $select_result = mysqli_query($con, $select_query);
+                                                            $i = 0;
+                                                            while ($data_select = mysqli_fetch_array($select_result)) {
+                                                                $i++;
+                                                            ?>
                                                             <label>
                                                                 <input type="radio" name="img"
                                                                     value="<?php echo $data_select['filelink']; ?>"
@@ -120,8 +117,8 @@
                                                                     style="margin-right:20px;">
                                                             </label>
                                                             <?php
-                                                    }
-                                                    ?>
+                                                            }
+                                                            ?>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -145,7 +142,7 @@
                                         <label class="col-form-label">Image</label>
                                     </div>
                                     <div class="input-group mb-3 col-12">
-                                        <img src="<?php echo "../img/".$data['img'] ?>" alt="no" height="auto"
+                                        <img src="<?php echo "../img/" . $data['img'] ?>" alt="no" height="auto"
                                             width="100%">
                                         <input id="imagebox" type="text" class="form-control" disabled name="img"
                                             readonly value="<?php echo $data['img'] ?>">

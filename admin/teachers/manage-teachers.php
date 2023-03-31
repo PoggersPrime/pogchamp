@@ -17,7 +17,7 @@ require('../connection/config.php');
             <h1>Manage teachers</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">manage-teachers</li>
                 </ol>
             </nav>
@@ -34,6 +34,7 @@ require('../connection/config.php');
                                     <th scope="col">img</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Post</th>
+                                    <th scope="col">Description</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -46,9 +47,11 @@ require('../connection/config.php');
                                 ?>
                                 <tr>
                                     <th scope="row"><?php echo ++$i; ?></th>
-                                    <td><img src="<?php echo "../img/" . @$data['img'] ?>" alt=""></td>
+                                    <td><img src="<?php echo "../img/" . @$data['img'] ?>" alt="" height="100px"
+                                            width="100px"></td>
                                     <td><?php echo $data['name'] ?></td>
                                     <td><?php echo $data['post'] ?></td>
+                                    <td><?php echo $data['description'] ?></td>
                                     <td>
                                         <a class="btn btn-primary btn-sm "
                                             href="edit-teachers.php?id=<?php echo $data['id']; ?>" role="button">Edit

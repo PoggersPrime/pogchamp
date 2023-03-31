@@ -15,7 +15,7 @@
             <h1>Add galleries</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">galleries</li>
                 </ol>
             </nav>
@@ -27,31 +27,28 @@
                         <h5 class="card-title">Add galleries</h5>
 
                         <?php
-                        if(isset($_POST['submit'])){
+                        if (isset($_POST['submit'])) {
                             $img = $_POST['img'];
-                            $title =$_POST['title'];
-                             
+                            $title = $_POST['title'];
 
-                            if($img !== "" && $title != ""){
-                                $query = "INSERT INTO galleries (img,title) VALUES ('$img','$title' )";
-                                $result = mysqli_query($con,$query);
+                            if ($img !== "" && $title != "") {
+                                $query = "INSERT INTO galleries (img,title) VALUES ('$img','$title')";
+                                $result = mysqli_query($con, $query);
 
-                                if($result){
-                                    ?>
+                                if ($result) {
+                        ?>
                         <div class="alert alert-success" role="alert">
                             Submitted succesfully
                         </div>
                         <?php
-                                }
-                                else{
-                                    ?>
+                                } else {
+                                ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted
                         </div>
                         <?php
                                 }
-                            }
-                            else {
+                            } else {
                                 ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted
@@ -59,7 +56,7 @@
                         <?php
                             }
                         }
-                         ?>
+                        ?>
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
@@ -94,12 +91,12 @@
                                                             </style>
 
                                                             <?php
-                                                    $select_query = "SELECT * FROM files";
-                                                    $select_result = mysqli_query($con, $select_query);
-                                                    $i = 0;
-                                                    while ($data_select = mysqli_fetch_array($select_result)) {
-                                                        $i++;
-                                                    ?>
+                                                            $select_query = "SELECT * FROM files";
+                                                            $select_result = mysqli_query($con, $select_query);
+                                                            $i = 0;
+                                                            while ($data_select = mysqli_fetch_array($select_result)) {
+                                                                $i++;
+                                                            ?>
                                                             <label>
                                                                 <input type="radio" name="img"
                                                                     value="<?php echo $data_select['filelink']; ?>"
@@ -109,8 +106,8 @@
                                                                     style="margin-right:20px;">
                                                             </label>
                                                             <?php
-                                                    }
-                                                    ?>
+                                                            }
+                                                            ?>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">

@@ -20,7 +20,7 @@ include("./admin/connection/config.php");
     $data = $result->fetch_assoc();
     ?>
     <section id="hero" class="d-flex justify-content-center align-items-center"
-        style="background-image:url('<?php echo "admin/img/" . $data['img']; ?>')">
+        style="background-image:url('<?php echo "admin/img/" . $data['img']; ?>'); background-repeat:no-repeat; background-position:center">
         <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
             <h1><?php echo $data['title']; ?></h1>
             <h2><?php echo $data['description']; ?></h2>
@@ -48,6 +48,7 @@ include("./admin/connection/config.php");
                             <?php echo $adata['description']; ?>
                         </p>
                         <ul>
+
                             <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo
                                 consequat.</li>
                             <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate
@@ -91,53 +92,53 @@ include("./admin/connection/config.php");
         </section><!-- End Counts Section -->
 
         <!-- ======= Why Us Section ======= -->
-        <?php
-        $whyquery = "SELECT * FROM whychooseus";
-        $whyresult = mysqli_query($con, $whyquery);
-        $whydata = $whyresult->fetch_assoc();
-        ?>
         <section id="why-us" class="why-us">
             <div class="container" data-aos="fade-up">
 
                 <div class="row">
                     <div class="col-lg-4 d-flex align-items-stretch">
                         <div class="content">
-                            <h3><?php echo $whydata['title']; ?></h3>
+                            <?Php
+                            $fquery1 = "SELECT * FROM whychooseus";
+                            $result1 = mysqli_query($con, $fquery1);
+                            $data1 = $result1->fetch_assoc();
+                            ?>
+                            <h3><?php echo $data1['title']; ?></h3>
                             <p>
-                                <?php echo $whydata['description']; ?>
+                                <?php echo $data1['description']; ?>
                             </p>
                             <div class="text-center">
                                 <a href="about.html" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-8 d-flex align-items-stretch p-2" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="icon-boxes d-flex flex-column justify-content-center">
                             <div class="row">
-                                <?php
-                                $services = "SELECT * FROM services ";
-                                $sresult = mysqli_query($con, $services);
-                                while ($sdata = mysqli_fetch_array($sresult)) {
+                                <?Php
+                                $fquery1 = "SELECT * FROM services limit 4";
+                                $result1 = mysqli_query($con, $fquery1);
+                                while ($data1 = mysqli_fetch_array($result1)) {
+
                                 ?>
-                                <div class="col-xl-4 d-flex align-items-stretch ">
+                                <div class="col-xl-4 d-flex align-items-stretch py-2">
                                     <div class="icon-box mt-4 mt-xl-0">
-                                        <i class="<?php echo $sdata['icon']; ?>"></i>
-                                        <h4><?php echo $sdata['title']; ?></h4>
-                                        <p><?php echo $sdata['description'] ?></p>
+                                        <i class="<?php echo $data1['icon']; ?>"></i>
+                                        <h4>
+                                            <?php echo $data1['title']; ?>
+                                        </h4>
+                                        <p><?php echo $data1['description']; ?></p>
                                     </div>
                                 </div>
-                                <?php
-                                }
-                                ?>
+                                <?php } ?>
 
                             </div>
-                        </div>
-                    </div><!-- End .content-->
+                        </div><!-- End .content-->
+                    </div>
                 </div>
-            </div>
 
             </div>
-        </section><!-- End Why Us Section -->
+        </section><!-- End Why Us Section -->
 
         <!-- ======= Facilities Section ======= -->
         <section id="facilities" class="facilities">
@@ -165,6 +166,7 @@ include("./admin/connection/config.php");
         </section><!-- End Facilities Section -->
 
         <!-- ======= Popular Courses Section ======= -->
+
         <section id="popular-courses" class="courses">
             <div class="container" data-aos="fade-up">
 
@@ -175,22 +177,21 @@ include("./admin/connection/config.php");
 
                 <div class="row" data-aos="zoom-in" data-aos-delay="100">
                     <?php
-                    $course = "SELECT * FROM courses";
-                    $res = mysqli_query($con, $course);
-                    while ($resdat = mysqli_fetch_array($res)) {
+                    $courses = "SELECT * FROM courses";
+                    $courseResult = mysqli_query($con, $courses);
+                    while ($cordata = mysqli_fetch_array($courseResult)) {
                     ?>
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="course-item">
-                            <img src="<?php echo "admin/img/" . $resdat['img']; ?>" class="img-fluid"
-                                alt="wfertymngfbfd">
+                            <img src="<?php echo "admin/img/" . $cordata['img'] ?>" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h4><?php echo $resdat['title']; ?></h4>
-                                    <p class="price"><?php echo $resdat['fee']; ?></p>
+                                    <h4><?php echo $cordata['title']; ?></h4>
+                                    <p class="price"><?php echo $cordata['fee']; ?></p>
                                 </div>
 
-                                <h3><a href="course-details.html"><?php echo $resdat['title']; ?></a></h3>
-                                <p><?php echo $resdat['description']; ?></p>
+                                <h3><a href="course-details.html"><?php echo $cordata['title']; ?></a></h3>
+                                <p><?php echo $cordata['description']; ?></p>
                                 <div class="trainer d-flex justify-content-between align-items-center">
                                     <div class="trainer-profile d-flex align-items-center">
                                         <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
@@ -209,6 +210,7 @@ include("./admin/connection/config.php");
                     }
                     ?>
                 </div>
+
             </div>
         </section><!-- End Popular Courses Section -->
 
@@ -217,15 +219,19 @@ include("./admin/connection/config.php");
             <div class="container" data-aos="fade-up">
 
                 <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                    <?php
+                    $teachers = "SELECT * FROM teachers";
+                    $teachResult = mysqli_query($con, $teachers);
+                    while ($tedata = mysqli_fetch_array($teachResult)) {
+                    ?>
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member">
-                            <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
+                            <img src="<?php echo "admin/img/" . $tedata['img']; ?>" class="img-fluid" alt="">
                             <div class="member-content">
-                                <h4>Walter White</h4>
-                                <span>Web Development</span>
+                                <h4><?php echo $tedata['name']; ?></h4>
+                                <span><?php echo $tedata['post']; ?></span>
                                 <p>
-                                    Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis
-                                    quaerat qui aut aut aut
+                                    <?php echo $tedata['description']; ?>
                                 </p>
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter"></i></a>
@@ -236,47 +242,9 @@ include("./admin/connection/config.php");
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member">
-                            <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
-                            <div class="member-content">
-                                <h4>Sarah Jhinson</h4>
-                                <span>Marketing</span>
-                                <p>
-                                    Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto
-                                    rerum rerum temporibus
-                                </p>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member">
-                            <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
-                            <div class="member-content">
-                                <h4>William Anderson</h4>
-                                <span>Content</span>
-                                <p>
-                                    Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et
-                                    laborum toro des clara
-                                </p>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <?php
+                    }
+                    ?>
                 </div>
 
             </div>

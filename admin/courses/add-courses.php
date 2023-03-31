@@ -15,7 +15,7 @@
             <h1>Add courses</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">Course</li>
                 </ol>
             </nav>
@@ -35,7 +35,7 @@
                             $time = $_POST['time'];
 
                             if ($img !== "" && $title !== "" && $description !== "") {
-                                $query = "INSERT INTO courses(img,title,fee,description,seats,time) VALUES (' $img',' $title','$fee','$description','$seats','$time')";
+                                $query = "INSERT INTO courses(img,title,fee,description,seats,time) VALUES ('$img',' $title','$fee','$description','$seats','$time')";
                                 $result = mysqli_query($con, $query);
 
                                 if ($result) {
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="mb-3 col-lg-6 col-md-6 col-sm-6">
                                         <label for="exampleInputEmail1" class="form-label">fee</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1"
+                                        <input type="number" class="form-control" id="exampleInputEmail1"
                                             aria-describedby="emailHelp" name="fee">
                                     </div>
                                     <div class="mb-3 col-lg-6 col-md-6 col-sm-6">

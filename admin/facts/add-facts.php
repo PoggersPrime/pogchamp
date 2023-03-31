@@ -15,7 +15,7 @@
             <h1>Add File</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">add-facts</li>
                 </ol>
             </nav>
@@ -26,30 +26,28 @@
                     <div class="card-body">
                         <h5 class="card-title">Add file</h5>
                         <?php
-                        if(isset($_POST['submit'])){
-                            $numbers =$_POST['numbers'];
+                        if (isset($_POST['submit'])) {
+                            $numbers = $_POST['numbers'];
                             $title = $_POST['title'];
 
-                            if( $title!="" && $numbers !=""){
-                                $query="INSERT INTO facts (numbers,title) VALUES ('$numbers','$title')";
-                                $result = mysqli_query($con,$query);
+                            if ($title != "" && $numbers != "") {
+                                $query = "INSERT INTO facts (numbers,title) VALUES ('$numbers','$title')";
+                                $result = mysqli_query($con, $query);
 
-                                if($result){
-                                    ?>
+                                if ($result) {
+                        ?>
                         <div class="alert alert-success" role="alert">
                             Data submitted succesfully
                         </div>
                         <?php
-                                }
-                                else{
-                                    ?>
+                                } else {
+                                ?>
                         <div class="alert alert-danger" role="alert">
                             Data not inserted
                         </div>
                         <?php
                                 }
-                            }
-                            else{
+                            } else {
                                 ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted

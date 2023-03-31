@@ -12,11 +12,11 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Add courses</h1>
+            <h1>edit courses</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Course</li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+                    <li class="breadcrumb-item active">Edit-Course</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -36,7 +36,7 @@
                         ?>
                         <?php
                         if (isset($_POST['submit'])) {
-                            $img = $_POST['img'];
+                            $img = @$_POST['img'];
                             $title = $_POST['title'];
                             $fee = $_POST['fee'];
                             $description = $_POST['description'];
@@ -44,7 +44,7 @@
                             $time = $_POST['time'];
 
                             if ($img !== "" && $title !== "" && $description !== "") {
-                                $query = "UPDATE courses SET img=' $img',title=' $title',fee='$fee',description='$description',seats='$seats',time='$time' where id='$id'";
+                                $query = "UPDATE courses SET img='$img',title=' $title',fee='$fee',description='$description',seats='$seats',time='$time' where id='$id'";
                                 $result = mysqli_query($con, $query);
                                 if ($result) {
                         ?>
@@ -166,9 +166,11 @@
                                     <div class="form-group col-12 mb-0">
                                         <label class="col-form-label">Image</label>
                                     </div>
+                                    <div>
+                                        <img src="<?php echo "../img/" . $data['img']; ?>" alt="" height="100px"
+                                            width="100px">
+                                    </div>
                                     <div class="input-group mb-3 col-12">
-                                        <img src="<?php echo "../img/" . $data['img']; ?>" alt="" height="auto"
-                                            width="100%">
                                         <input id="imagebox" type="text" class="form-control" disabled name="img"
                                             readonly value="<?php echo $data['img']; ?>">
                                         <div class="input-group-append">

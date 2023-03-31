@@ -12,12 +12,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Add features</h1>
-            <a href="manage-features" class="btn btn-primary btn-md my-3 ">Back</a>
+            <h1>View whyChooseUs</h1>
+            <a href="manage-why" class="btn btn-primary btn-md my-3 ">Back</a>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">add-facts</li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+                    <li class="breadcrumb-item active">view-whyChooseUs</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -27,37 +27,35 @@
                     <div class="card-body">
                         <h5 class="card-title">Add file</h5>
                         <?php
-                        if(isset($_GET['id'])){
-                            $id=$_GET['id'];
+                        if (isset($_GET['id'])) {
+                            $id = $_GET['id'];
                             $query = "SELECT * FROM whychooseus where id=$id";
-                            $result = mysqli_query($con,$query);
-                            $data = $result ->fetch_assoc();
+                            $result = mysqli_query($con, $query);
+                            $data = $result->fetch_assoc();
                         }
                         ?>
                         <?php
-                        if(isset($_POST['submit'])){
-                            $description =$_POST['description'];
+                        if (isset($_POST['submit'])) {
+                            $description = $_POST['description'];
                             $title = $_POST['title'];
-                            if( $title!="" && $description !=""){
-                                $query="UPDATE whychooseus SET description='$description',title='$title' where id='$id'";
-                                $result = mysqli_query($con,$query);
+                            if ($title != "" && $description != "") {
+                                $query = "UPDATE whychooseus SET description='$description',title='$title' where id='$id'";
+                                $result = mysqli_query($con, $query);
 
-                                if($result){
-                                    ?>
+                                if ($result) {
+                        ?>
                         <div class="alert alert-success" role="alert">
                             Data submitted succesfully
                         </div>
                         <?php
-                                }
-                                else{
-                                    ?>
+                                } else {
+                                ?>
                         <div class="alert alert-danger" role="alert">
                             Data not inserted
                         </div>
                         <?php
                                 }
-                            }
-                            else{
+                            } else {
                                 ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted

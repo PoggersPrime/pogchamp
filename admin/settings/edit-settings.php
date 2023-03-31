@@ -16,7 +16,7 @@
             <a href="manage-settings" class="btn btn-primary btn-md my-3 ">Back</a>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">add-settings</li>
                 </ol>
             </nav>
@@ -27,37 +27,35 @@
                     <div class="card-body">
                         <h5 class="card-title">Add settings</h5>
                         <?php
-                        if(isset($_GET['id'])){
-                            $id=$_GET['id'];
+                        if (isset($_GET['id'])) {
+                            $id = $_GET['id'];
                             $query = "SELECT * FROM settings where id=$id";
-                            $result = mysqli_query($con,$query);
-                            $data = $result ->fetch_assoc();
+                            $result = mysqli_query($con, $query);
+                            $data = $result->fetch_assoc();
                         }
                         ?>
                         <?php
-                        if(isset($_POST['submit'])){
-                            $site_value  =$_POST['site_value '];
+                        if (isset($_POST['submit'])) {
+                            $site_value  = $_POST['site_value'];
                             $site_key = $_POST['site_key'];
-                            if( $site_key!="" && $site_value  !=""){
-                                $query="UPDATE settings SET site_value ='$site_value ',site_key='$site_key' where id='$id'";
-                                $result = mysqli_query($con,$query);
+                            if ($site_key != "" && $site_value  != "") {
+                                $query = "UPDATE settings SET site_value='$site_value',site_key='$site_key' where id='$id'";
+                                $result = mysqli_query($con, $query);
 
-                                if($result){
-                                    ?>
+                                if ($result) {
+                        ?>
                         <div class="alert alert-success" role="alert">
                             Data submitted succesfully
                         </div>
                         <?php
-                                }
-                                else{
-                                    ?>
+                                } else {
+                                ?>
                         <div class="alert alert-danger" role="alert">
                             Data not inserted
                         </div>
                         <?php
                                 }
-                            }
-                            else{
+                            } else {
                                 ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted

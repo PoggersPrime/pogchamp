@@ -1,7 +1,18 @@
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
+        <?php
+        $query = "SELECT *FROM settings";
+        $result = mysqli_query($con, $query);
+        // $data= $result->fetch_all();
+        while ($site = $result->fetch_assoc()) {
+            if ($site['site_key'] == "logo") {
+                $logo = $site['site_value'];
+            }
 
-        <h1 class="logo me-auto"><a href="index.php">Mentor</a></h1>
+            // yastai aru declare garne
+        }
+        ?>
+        <h1 class="logo me-auto"><a href="index.php"><img src="admin/img/<?php echo $logo; ?>" alt="" width="70" height="50"></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.php" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -17,8 +28,7 @@
                 <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="#">Drop Down 1</a></li>
-                        <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
-                                    class="bi bi-chevron-right"></i></a>
+                        <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                             <ul>
                                 <li><a href="#">Deep Drop Down 1</a></li>
                                 <li><a href="#">Deep Drop Down 2</a></li>

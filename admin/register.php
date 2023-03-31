@@ -76,7 +76,7 @@
                                         $password = md5($_POST['password']);
 
                                         if ($name !== "" && $phone !== "" && $email !== "") {
-                                            $submit = "INSERT INTO admin(name,phone,email,password) VALUES ('$name','$phone','$email','$hash')";
+                                            $submit = "INSERT INTO admin(name,phone,email,password) VALUES ('$name','$phone','$email','$password')";
                                             $result = mysqli_query($con, $submit);
                                             if ($result) {
                                     ?>

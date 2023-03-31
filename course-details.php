@@ -4,11 +4,11 @@ include("inc/header.php");
 
 <body>
     <?php
-  include("./admin/connection/config.php");
-  ?>
+    include("./admin/connection/config.php");
+    ?>
     <?php
-  include("inc/navbar.php");
-  ?>
+    include("inc/navbar.php");
+    ?>
     <main id="main">
 
         <!-- ======= Breadcrumbs ======= -->
@@ -25,19 +25,16 @@ include("inc/header.php");
             <div class="container" data-aos="fade-up">
 
                 <div class="row">
+                    <?php
+                    $query = "SELECT * FROM course_features";
+                    $result = mysqli_query($con, $query);
+                    $data = $result->fetch_assoc();
+                    ?>
                     <div class="col-lg-8">
-                        <img src="assets/img/course-details.jpg" class="img-fluid" alt="">
-                        <h3>Et enim incidunt fuga tempora</h3>
+                        <img src="<?php echo "admin/img/" . $data['img']; ?>" class="img-fluid" alt="">
+                        <h3><?php echo $data['title']; ?></h3>
                         <p>
-                            Qui et explicabo voluptatem et ab qui vero et voluptas. Sint voluptates temporibus quam
-                            autem. Atque nostrum voluptatum laudantium a doloremque enim et ut dicta. Nostrum ducimus
-                            est iure minima totam doloribus nisi ullam deserunt. Corporis aut officiis sit nihil est.
-                            Labore aut sapiente aperiam.
-                            Qui voluptas qui vero ipsum ea voluptatem. Omnis et est. Voluptatem officia voluptatem
-                            adipisci et iusto provident doloremque consequatur. Quia et porro est. Et qui corrupti
-                            laudantium ipsa.
-                            Eum quasi saepe aperiam qui delectus quaerat in. Vitae mollitia ipsa quam. Ipsa aut qui
-                            numquam eum iste est dolorum. Rem voluptas ut sit ut.
+                            <?php echo $data['description']; ?>
                         </p>
                     </div>
                     <div class="col-lg-4">
@@ -96,6 +93,7 @@ include("inc/header.php");
                         <div class="tab-content">
                             <div class="tab-pane active show" id="tab-1">
                                 <div class="row">
+
                                     <div class="col-lg-8 details order-2 order-lg-1">
                                         <h3>Architecto ut aperiam autem id</h3>
                                         <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente
@@ -185,5 +183,5 @@ include("inc/header.php");
 
     <!-- ======= Footer ======= -->
     <?php
-  include("inc/footer.php");
-  ?>
+    include("inc/footer.php");
+    ?>

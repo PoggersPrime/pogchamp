@@ -17,7 +17,7 @@ require('../connection/config.php');
             <h1>Manage events</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">manage-events</li>
                 </ol>
             </nav>
@@ -47,7 +47,8 @@ require('../connection/config.php');
                                 ?>
                                 <tr>
                                     <th scope="row"><?php echo ++$i; ?></th>
-                                    <td><img src="<?php echo "../img/" . @$data['img'] ?>" alt=""></td>
+                                    <td><img src="<?php echo "../img/" . @$data['img'] ?>" alt="" height="100px"
+                                            width="100px"></td>
                                     <td><?php echo $data['title'] ?></td>
                                     <td><?php echo $data['date'] ?></td>
                                     <td><?php echo $data['description'] ?></td>

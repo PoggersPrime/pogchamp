@@ -17,7 +17,7 @@
 
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">about us</li>
                 </ol>
             </nav>
@@ -28,42 +28,40 @@
                     <div class="card-body">
                         <h5 class="card-title">Add aboutus</h5>
                         <?php
-                        if(isset($_GET['id'])){
-                            $id=$_GET['id'];
-                            $edit="SELECT* FROM aboutus where id=$id";
-                            $result=mysqli_query($con,$edit);
-                        
-                            $data=$result->fetch_assoc();
-                        } 
+                        if (isset($_GET['id'])) {
+                            $id = $_GET['id'];
+                            $edit = "SELECT* FROM aboutus where id=$id";
+                            $result = mysqli_query($con, $edit);
+
+                            $data = $result->fetch_assoc();
+                        }
                         ?>
                         <?php
-                        if(isset($_POST['submit'])){
-                            $top_title=$_POST['top_title'];
-                            $top_desc =$_POST['top_desc'];
+                        if (isset($_POST['submit'])) {
+                            $top_title = $_POST['top_title'];
+                            $top_desc = $_POST['top_desc'];
                             $title = $_POST['title'];
-                            $description= $_POST ['description'];
+                            $description = $_POST['description'];
                             $img = $_POST['img'];
-                            if($img !== "" && $title !== ""){
+                            if ($img !== "" && $title !== "") {
                                 $query = "UPDATE aboutus SET top_title='$top_title',top_desc='$top_desc',title='$title',description='$description',img='$img' where id='$id'";
-                                $result = mysqli_query($con,$query);
+                                $result = mysqli_query($con, $query);
 
-                                if($result){
-                                    ?>
+                                if ($result) {
+                        ?>
                         <div class="alert alert-success" role="alert">
                             Submitted succesfully
                         </div>
                         <?php
-                        echo("<meta http-equiv=\"refresh\" content=\"0;URL=manage-aboutus.php\">");
-                                }
-                                else{
-                                    ?>
+                                    echo ("<meta http-equiv=\"refresh\" content=\"0;URL=manage-aboutus.php\">");
+                                } else {
+                                ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted
                         </div>
                         <?php
                                 }
-                            }
-                            else {
+                            } else {
                                 ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted
@@ -71,7 +69,7 @@
                         <?php
                             }
                         }
-                         ?>
+                        ?>
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="row">
@@ -121,12 +119,12 @@
                                                             </style>
 
                                                             <?php
-                                                    $select_query = "SELECT * FROM files";
-                                                    $select_result = mysqli_query($con, $select_query);
-                                                    $i = 0;
-                                                    while ($data_select = mysqli_fetch_array($select_result)) {
-                                                        $i++;
-                                                    ?>
+                                                            $select_query = "SELECT * FROM files";
+                                                            $select_result = mysqli_query($con, $select_query);
+                                                            $i = 0;
+                                                            while ($data_select = mysqli_fetch_array($select_result)) {
+                                                                $i++;
+                                                            ?>
                                                             <label>
                                                                 <input type="radio" name="img"
                                                                     value="<?php echo $data_select['filelink']; ?>"
@@ -136,8 +134,8 @@
                                                                     style="margin-right:20px;">
                                                             </label>
                                                             <?php
-                                                    }
-                                                    ?>
+                                                            }
+                                                            ?>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -158,7 +156,7 @@
                                         </script>
                                     </div>
                                     <div class="form-group col-12 mb-0">
-                                        <img src="<?php echo "../img/".$data['img'] ?>" alt="no" height="auto"
+                                        <img src="<?php echo "../img/" . $data['img'] ?>" alt="no" height="auto"
                                             width="100%">
                                         <label class="col-form-label">Image</label>
                                     </div>

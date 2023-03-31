@@ -12,11 +12,11 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Add courses</h1>
+            <h1>view courses</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Course</li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+                    <li class="breadcrumb-item active">View-Course</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Edit courses</h5>
+                        <h5 class="card-title">view courses</h5>
                         <a href="manage-courses" class="btn btn-primary btn-md my-3 ">Back</a>
                         <?php
                         if (isset($_GET['id'])) {
@@ -44,7 +44,7 @@
                             $time = $_POST['time'];
 
                             if ($img !== "" && $title !== "" && $description !== "") {
-                                $query = "UPDATE courses SET img=' $img',title=' $title',fee='$fee',description='$description',seats='$seats',time='$time' where id='$id'";
+                                $query = "UPDATE courses SET img='$img',title=' $title',fee='$fee',description='$description',seats='$seats',time='$time' where id='$id'";
                                 $result = mysqli_query($con, $query);
                                 if ($result) {
                         ?>
@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="mb-3 col-lg-6 col-md-6 col-sm-6">
                                         <label for="exampleInputEmail1" class="form-label">fee</label>
-                                        <input type="text" disabled class="form-control" id="exampleInputEmail1"
+                                        <input type="number" disabled class="form-control" id="exampleInputEmail1"
                                             aria-describedby="emailHelp" name="fee" value="<?php echo $data['fee'] ?>">
                                     </div>
                                     <div class="mb-3 col-lg-6 col-md-6 col-sm-6">
@@ -166,9 +166,11 @@
                                     <div class="form-group col-12 mb-0">
                                         <label class="col-form-label">Image</label>
                                     </div>
+                                    <div>
+                                        <img src="<?php echo "../img/" . $data['img'] ?>" alt="" width="100px"
+                                            height="100px">
+                                    </div>
                                     <div class="input-group mb-3 col-12">
-                                        <img src="<?php echo "../img/" . $data['img'] ?>" alt="" height="auto"
-                                            width="100%">
                                         <input id="imagebox" type="text" class="form-control" disabled name="img"
                                             readonly value="<?php echo $data['img'] ?>">
 

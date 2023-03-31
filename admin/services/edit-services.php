@@ -12,12 +12,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Add services</h1>
+            <h1>Edit services</h1>
             <a href="manage-services" class="btn btn-primary btn-md my-3 ">Back</a>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">add-services</li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+                    <li class="breadcrumb-item active">edit-services</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -25,40 +25,38 @@
             <div class="row">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Add services</h5>
+                        <h5 class="card-title">Edit services</h5>
                         <?php
-                        if(isset($_GET['id'])){
-                            $id=$_GET['id'];
+                        if (isset($_GET['id'])) {
+                            $id = $_GET['id'];
                             $query = "SELECT * FROM services where id=$id";
-                            $result = mysqli_query($con,$query);
-                            $data = $result ->fetch_assoc();
+                            $result = mysqli_query($con, $query);
+                            $data = $result->fetch_assoc();
                         }
                         ?>
                         <?php
-                        if(isset($_POST['submit'])){
-                            $icon =$_POST['icon'];
-                            $description =$_POST['description'];
+                        if (isset($_POST['submit'])) {
+                            $icon = $_POST['icon'];
+                            $description = $_POST['description'];
                             $title = $_POST['title'];
-                            if( $title!="" && $description !=""){
-                                $query="UPDATE services SET icon='$icon',description='$description',title='$title' where id='$id'";
-                                $result = mysqli_query($con,$query);
+                            if ($title != "" && $description != "") {
+                                $query = "UPDATE services SET icon='$icon',description='$description',title='$title' where id='$id'";
+                                $result = mysqli_query($con, $query);
 
-                                if($result){
-                                    ?>
+                                if ($result) {
+                        ?>
                         <div class="alert alert-success" role="alert">
                             Data submitted succesfully
                         </div>
                         <?php
-                                }
-                                else{
-                                    ?>
+                                } else {
+                                ?>
                         <div class="alert alert-danger" role="alert">
                             Data not inserted
                         </div>
                         <?php
                                 }
-                            }
-                            else{
+                            } else {
                                 ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted

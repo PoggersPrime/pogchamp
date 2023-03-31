@@ -1,5 +1,5 @@
 <?php include("../inc/header.php"); ?>
-<?php 
+<?php
 require('../connection/config.php');
 ?>
 
@@ -17,7 +17,7 @@ require('../connection/config.php');
             <h1>Manage Sliders</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">manage-file</li>
                 </ol>
             </nav>
@@ -25,7 +25,7 @@ require('../connection/config.php');
         <section class="section">
             <div class="row">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body"></div>
                         <h5 class="card-title">Manage Files</h5>
                         <table class="table">
                             <thead>
@@ -38,32 +38,33 @@ require('../connection/config.php');
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php 
-                              $table= "SELECT * FROM files ";
-                              $result1= mysqli_query($con,$table);
-                              $i=0;
-                              while($data=mysqli_fetch_array($result1)){
+                            <tbody></tbody>
+                                <?php
+                                $table = "SELECT * FROM files ";
+                                $result1 = mysqli_query($con, $table);
+                                $i = 0;
+                                while ($data = mysqli_fetch_array($result1)) {
                                 ?>
                                 <tr>
                                     <th scope="row"><?php echo ++$i; ?></th>
                                     <td><?php echo $data['title'] ?></td>
                                     <td><?php echo $data['description'] ?></td>
-                                    <td><?php echo $data['filelink'] ?></td>
+                                    <td><img src="<?php echo "../img/" . $data['filelink'] ?>" alt="" height="100px"
+                                            width="100px"></td>
                                     <td><?php echo $data['type'] ?></td>
                                     <td>
                                         <a class="btn btn-primary btn-sm "
-                                            href="edit-file.php?id=<?php echo $data['id'];?>" role="button">Edit </a>
+                                            href="edit-file.php?id=<?php echo $data['id']; ?>" role="button">Edit </a>
                                         <a class="btn btn-info btn-sm "
-                                            href="view-file.php?id=<?php echo $data['id'];?>" role="button">View </a>
+                                            href="view-file.php?id=<?php echo $data['id']; ?>" role="button">View </a>
                                         <a class="btn btn-danger btn-sm "
-                                            href="../process/delete-file.php?id=<?php echo $data['id'];?>"
+                                            href="../process/delete-file.php?id=<?php echo $data['id']; ?>"
                                             role="button">Delete </a>
                                     </td>
                                 </tr>
                                 <?php
-                              }
-                              ?>
+                                }
+                                ?>
 
                             </tbody>
                         </table>

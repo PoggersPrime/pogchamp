@@ -12,12 +12,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Add facilities</h1>
+            <h1>Edit facilities</h1>
             <a href="manage-facilities" class="btn btn-primary btn-md my-3 ">Back</a>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">add-facilities</li>
+                    <li class="breadcrumb-item active">edit-facilities</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Add facilities</h5>
+                        <h5 class="card-title">Edit facilities</h5>
                         <?php
                         if (isset($_GET['id'])) {
                             $id = $_GET['id'];
@@ -48,6 +48,7 @@
                             Data submitted succesfully
                         </div>
                         <?php
+                                    echo ("<meta http-equiv=\"refresh\" content=\"0;URL=manage-facilities.php\">");
                                 } else {
                                 ?>
                         <div class="alert alert-danger" role="alert">

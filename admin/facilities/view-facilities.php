@@ -12,12 +12,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Add facilities</h1>
+            <h1>View facilities</h1>
             <a href="manage-facilities" class="btn btn-primary btn-md my-3 ">Back</a>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">add-facilities</li>
+                    <li class="breadcrumb-item active">view-facilities</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -27,37 +27,35 @@
                     <div class="card-body">
                         <h5 class="card-title">Add facilities</h5>
                         <?php
-                        if(isset($_GET['id'])){
-                            $id=$_GET['id'];
+                        if (isset($_GET['id'])) {
+                            $id = $_GET['id'];
                             $query = "SELECT * FROM facilities where id=$id";
-                            $result = mysqli_query($con,$query);
-                            $data = $result ->fetch_assoc();
+                            $result = mysqli_query($con, $query);
+                            $data = $result->fetch_assoc();
                         }
                         ?>
                         <?php
-                        if(isset($_POST['submit'])){
-                            $icon =$_POST['icon'];
+                        if (isset($_POST['submit'])) {
+                            $icon = $_POST['icon'];
                             $title = $_POST['title'];
-                            if( $title!="" && $icon !=""){
-                                $query="UPDATE facilities SET icon='$icon',title='$title' where id='$id'";
-                                $result = mysqli_query($con,$query);
+                            if ($title != "" && $icon != "") {
+                                $query = "UPDATE facilities SET icon='$icon',title='$title' where id='$id'";
+                                $result = mysqli_query($con, $query);
 
-                                if($result){
-                                    ?>
+                                if ($result) {
+                        ?>
                         <div class="alert alert-success" role="alert">
                             Data submitted succesfully
                         </div>
                         <?php
-                                }
-                                else{
-                                    ?>
+                                } else {
+                                ?>
                         <div class="alert alert-danger" role="alert">
                             Data not inserted
                         </div>
                         <?php
                                 }
-                            }
-                            else{
+                            } else {
                                 ?>
                         <div class="alert alert-danger" role="alert">
                             Data not submitted

@@ -2,7 +2,7 @@
 require('connection/config.php');
 session_start()
 ?>
-<?php include('./loginprocess/secure.php'); ?>
+<?php include('./login-process/secure.php'); ?>
 
 
 
@@ -264,7 +264,7 @@ session_start()
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="login-process/logout.php">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -597,6 +597,19 @@ session_start()
                     <li>
                         <a href="settings/manage-settings.php">
                             <i class="bi bi-circle"></i><span>Manage settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-nav17" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Contact </span><i
+                        class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav17" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="frontend_contact/manage-contact.php">
+                            <i class="bi bi-circle"></i><span>Manage contact</span>
                         </a>
                     </li>
                 </ul>

@@ -12,11 +12,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Add testimonials</h1>
+            <h1>View testimonials</h1>
             <nav>
+                <a href="manage-testimonials.php" class="btn btn-primary btn-md my-3 ">Back</a>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Testimonials</li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+                    <li class="breadcrumb-item active">View Testimonials</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -24,7 +25,7 @@
             <div class="row">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Edit testimonials</h5>
+                        <h5 class="card-title">.phpiew testimonials</h5>
                         <?php
                         if (isset($_GET['id'])) {
                             $id = $_GET['id'];
@@ -39,9 +40,8 @@
                             $name = $_POST['name'];
                             $post = $_POST['post'];
                             $messages = $_POST['messages'];
-                            $status = $_POST['status'];
                             if ($img !== "" && $name !== "" && $messages !== "") {
-                                $query = "UPDATE testimonials SET img=' $img',name=' $name',post='$post',messages='$messages',status='$status' where id='$id'";
+                                $query = "UPDATE testimonials SET img=' $img',name=' $name',post='$post',messages='$messages' where id='$id'";
                                 $result = mysqli_query($con, $query);
                                 if ($result) {
                         ?>
@@ -151,9 +151,11 @@
                                     <div class="form-group col-12 mb-0">
                                         <label class="col-form-label">Image</label>
                                     </div>
+                                    <div>
+                                        <img src="<?php echo "../img/" . $data['img'] ?>" alt="" height="auto"
+                                            width="100px">
+                                    </div>
                                     <div class="input-group mb-3 col-12">
-                                        <img src="<?php echo "../img/" . $data['img'] ?>" alt="no" height="auto"
-                                            width="100%">
                                         <input id="imagebox" type="text" class="form-control" disabled name="img"
                                             readonly value="<?php echo $data['img'] ?>">
 

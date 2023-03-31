@@ -15,7 +15,7 @@
             <h1>Add testimonials</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item active">testimonials</li>
                 </ol>
             </nav>
@@ -24,7 +24,9 @@
             <div class="row">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Add testimonials</h5>
+                        <h5 class="card-title ">Add testimonials</h5>
+                        <a href="manage-testimonials.php" class="btn btn-primary btn-md ">manage</a>
+
                         <?php
                         if (isset($_POST['submit'])) {
                             $img = $_POST['img'];
@@ -32,7 +34,7 @@
                             $post = $_POST['post'];
                             $messages = $_POST['messages'];
                             if ($img !== "" && $name !== "" && $messages !== "") {
-                                $query = "INSERT INTO testimonials (img,name,post,messages) VALUES (' $img',' $name','$post','$messages')";
+                                $query = "INSERT INTO testimonials (img,name,post,messages) VALUES ('$img',' $name','$post','$messages')";
                                 $result = mysqli_query($con, $query);
 
                                 if ($result) {

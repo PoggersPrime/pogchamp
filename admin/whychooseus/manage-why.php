@@ -1,5 +1,5 @@
 <?php include("../inc/header.php"); ?>
-<?php 
+<?php
 require('../connection/config.php');
 ?>
 
@@ -14,11 +14,11 @@ require('../connection/config.php');
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Manage Sliders</h1>
+            <h1>Manage whyChooseUs</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">manage-file</li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+                    <li class="breadcrumb-item active">manage-whyChooseUs</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -26,7 +26,7 @@ require('../connection/config.php');
             <div class="row">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Manage Files</h5>
+                        <h5 class="card-title">Manage why</h5>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -37,11 +37,11 @@ require('../connection/config.php');
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
-                              $table= "SELECT * FROM whychooseus ";
-                              $result1= mysqli_query($con,$table);
-                              $i=0;
-                              while($data=mysqli_fetch_array($result1)){
+                                <?php
+                                $table = "SELECT * FROM whychooseus ";
+                                $result1 = mysqli_query($con, $table);
+                                $i = 0;
+                                while ($data = mysqli_fetch_array($result1)) {
                                 ?>
                                 <tr>
                                     <th scope="row"><?php echo ++$i; ?></th>
@@ -49,19 +49,19 @@ require('../connection/config.php');
                                     <td><?php echo $data['description'] ?></td>
                                     <td>
                                         <a class="btn btn-primary btn-sm "
-                                            href="edit-why.php?id=<?php echo $data['id'];?>" role="button">Edit
+                                            href="edit-why.php?id=<?php echo $data['id']; ?>" role="button">Edit
                                         </a>
-                                        <a class="btn btn-info btn-sm " href="view-why.php?id=<?php echo $data['id'];?>"
-                                            role="button">View
+                                        <a class="btn btn-info btn-sm "
+                                            href="view-why.php?id=<?php echo $data['id']; ?>" role="button">View
                                         </a>
                                         <a class="btn btn-danger btn-sm "
-                                            href="../process/delete-why.php?id=<?php echo $data['id'];?>"
+                                            href="../process/delete-why.php?id=<?php echo $data['id']; ?>"
                                             role="button">Delete </a>
                                     </td>
                                 </tr>
                                 <?php
-                              }
-                              ?>
+                                }
+                                ?>
 
                             </tbody>
                         </table>

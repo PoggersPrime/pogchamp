@@ -12,11 +12,13 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Add testimonials</h1>
+            <h1>Edit testimonials</h1>
             <nav>
+                <a href="manage-testimonials.php" class="btn btn-primary btn-md my-3 ">Back</a>
+
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Testimonials</li>
+                    <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+                    <li class="breadcrumb-item active">Edit Testimonials</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -41,7 +43,7 @@
                             $messages = $_POST['messages'];
 
                             if ($name !== "" && $messages !== "") {
-                                $query = "UPDATE testimonials SET img='$img',name='$name',post='$post',messages='$messages', where id='$id'";
+                                $query = "UPDATE testimonials SET img='$img',name='$name',post='$post',messages='$messages' where id='$id'";
                                 $result = mysqli_query($con, $query);
                                 if ($result) {
                         ?>
@@ -154,9 +156,12 @@
                                     <div class="form-group col-12 mb-0">
                                         <label class="col-form-label">Image</label>
                                     </div>
-                                    <div class="input-group mb-3 col-12">
+                                    <div>
                                         <img src="<?php echo "../img/" . $data['img'] ?>" alt="" height="auto"
-                                            width="100%">
+                                            width="100px">
+                                    </div>
+                                    <div class="input-group mb-3 col-12">
+
                                         <input id="imagebox" type="text" class="form-control" name="img" readonly
                                             value="<?php echo $data['img'] ?>">
                                         <div class="input-group-append">
